@@ -1,6 +1,7 @@
 import { DeepLinker, App, Config } from 'ionic-angular';
 import { Overlay } from 'ionic-angular/navigation/overlay';
 import { OverlayProxy } from 'ionic-angular/navigation/overlay-proxy';
+import { TemplateRef } from '@angular/core';
 
 import { ImageViewerImpl } from './image-viewer-impl';
 import { ImageViewerComponent } from './image-viewer.component';
@@ -22,4 +23,5 @@ export interface ImageViewerOptions {
 	fullResImage?: string
 	position?: ClientRect;
 	onCloseCallback?: Function;
+	navbarButtons?: TemplateRef<any>;
 }

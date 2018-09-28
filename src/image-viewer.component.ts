@@ -35,6 +35,9 @@ import { ImageViewerEnter, ImageViewerLeave } from './image-viewer-transitions';
 	template: `
 		<ion-header no-border>
 			<ion-navbar>
+				<ion-buttons end *ngIf="navbarButtons">
+					<ng-container *ngTemplateOutlet="navbarButtons"></ng-container>
+				</ion-buttons>
 			</ion-navbar>
 		</ion-header>
 
@@ -63,6 +66,8 @@ export class ImageViewerComponent extends Ion implements OnInit, OnDestroy, Afte
 
 	private unregisterBackButton: Function;
 
+	private navbarButtons: any;
+
 	constructor(
 		public _gestureCtrl: GestureController,
 		public elementRef: ElementRef,
@@ -78,6 +83,7 @@ export class ImageViewerComponent extends Ion implements OnInit, OnDestroy, Afte
 		super(_config, elementRef, renderer);
 
 		const url = _navParams.get('image');
+		this.navbarButtons = _navParams.get('navbarButtons');
 		this.updateImageSrc(url);
 	}
 
