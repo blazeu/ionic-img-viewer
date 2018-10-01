@@ -24,4 +24,5 @@ export interface ImageViewerOptions {
 	position?: ClientRect;
 	onCloseCallback?: Function;
 	navbarButtons?: TemplateRef<any>;
+	imageContent?: TemplateRef<any>;
 }

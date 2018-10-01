@@ -45,6 +45,7 @@ import { ImageViewerEnter, ImageViewerLeave } from './image-viewer-transitions';
 
 		<div class="image-wrapper">
 			<div class="image" #imageContainer>
+				<ng-container *ngTemplateOutlet="imageContent"></ng-container>
 				<img [src]="imageUrl" tappable #image />
 			</div>
 		</div>
@@ -67,6 +68,7 @@ export class ImageViewerComponent extends Ion implements OnInit, OnDestroy, Afte
 	private unregisterBackButton: Function;
 
 	private navbarButtons: any;
+	private imageContent: any;
 
 	constructor(
 		public _gestureCtrl: GestureController,
@@ -84,6 +86,7 @@ export class ImageViewerComponent extends Ion implements OnInit, OnDestroy, Afte
 
 		const url = _navParams.get('image');
 		this.navbarButtons = _navParams.get('navbarButtons');
+		this.imageContent = _navParams.get('imageContent');
 		this.updateImageSrc(url);
 	}
 
